@@ -1,41 +1,77 @@
 import React from "react";
 
 class CartItem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "Phone",
+      price: 999,
+      qty: 1,
+      img: "",
+    };
+  }
+  decreaseQuantity = ()=> {
+    console.log("Quantity Decreased");
+    console.log("this", this);
+    console.log("state", this.state.qty);
+
+  }
+
+  increaseQuantity = ()=> {
+    console.log("Quantity Increased");
+  }
+
+  delete = ()=> {
+    console.log("Quantity Deleted");
+  }
+
   render() {
-    return(
-         <div>
-    <div className="cart-item">
+    const { title, price, qty, img } = this.state;
+    return (
+      <div>
+        <div className="cart-item">
+          <div className="left-block">
+            <img style={styles.image} alt="" />
+          </div>
 
-    <div className="left-block">
-    <img style={styles.image}  />
+          <div className="right-block">
+            <div style={{ fontSize: "25px" }}>Name: {title}</div>
+            <div style={{ color: "grey" }}>Price: {price}</div>
+            <div style={{ color: "#777" }}>Quatity: {qty}</div>
 
-    </div>
-
-    <div className="right-block">
-        <div style={{fontSize:"25px"}}>Phone</div>
-        <div style={{color:"grey"}}>Rs. 999</div>
-        <div style={{color:"#777"}}>Qty: 1</div>
-        <div className="cart-item-action">
-
+            <div className="cart-item-actions">
+              <img
+                className="action-icons"
+                alt="decrease"
+                src="https://image.flaticon.com/icons/png/512/992/992683.png"
+                onClick={this.decreaseQuantity}
+              />
+              <img
+                className="action-icons"
+                alt="increase"
+                src="https://image.flaticon.com/icons/png/512/992/992651.png"
+                onClick={this.increaseQuantity}
+              />
+              <img
+                className="action-icons"
+                alt="delete"
+                src="https://image.flaticon.com/icons/png/512/216/216658.png"
+                onClick={this.delete}
+              />
+            </div>
+          </div>
         </div>
-    </div>
-
-
-    </div>
-    </div>
-    )
+      </div>
+    );
   }
 }
-const styles ={
-    
-    image:{
-        height:100,
-        width:100,
-        borderRadius:5,
-        background:"#ccc"
-    }
-}
-
-
+const styles = {
+  image: {
+    height: 100,
+    width: 100,
+    borderRadius: 5,
+    background: "#ccc",
+  },
+};
 
 export default CartItem;
