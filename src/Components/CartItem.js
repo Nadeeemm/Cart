@@ -10,20 +10,25 @@ class CartItem extends React.Component {
       img: "",
     };
   }
-  decreaseQuantity = ()=> {
-    console.log("Quantity Decreased");
-    console.log("this", this);
-    console.log("state", this.state.qty);
+  decreaseQuantity = () => {
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty -1,
+      };
+    });
+  };
 
-  }
+  increaseQuantity = () => {
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty + 1,
+      };
+    });
+  };
 
-  increaseQuantity = ()=> {
-    console.log("Quantity Increased");
-  }
-
-  delete = ()=> {
+  delete = () => {
     console.log("Quantity Deleted");
-  }
+  };
 
   render() {
     const { title, price, qty, img } = this.state;
