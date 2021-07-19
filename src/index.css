@@ -28,3 +28,8 @@
 .action-icons:hover {
     cursor: pointer;
 }
+
+.cart{
+    display: flex;
+    flex-direction: column;
+}

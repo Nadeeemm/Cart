@@ -1,10 +1,10 @@
 import React from 'react';
-import CartItem from './Components/CartItem';
+import Cart from './Components/Cart';
 import "./index.css"
 
 function App() {
   return <div className="App">
-    <CartItem/>
+    <Cart/>
   </div>;
 }
 

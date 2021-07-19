@@ -11,19 +11,32 @@ class CartItem extends React.Component {
     };
   }
   decreaseQuantity = () => {
-    this.setState((prevState) => {
-      return {
-        qty: prevState.qty -1,
-      };
-    });
+const {qty}= this.state;
+if(qty===0){
+  return;
+}
+
+this.setState({
+  qty:this.state.qty-1
+})
+
+    // this.setState((prevState) => {
+    //   return {
+    //     qty: prevState.qty -1,
+    
+    //   };
+    // });
   };
 
   increaseQuantity = () => {
-    this.setState((prevState) => {
-      return {
-        qty: prevState.qty + 1,
-      };
-    });
+    this.setState({
+      qty:this.state.qty+1
+    })
+    // this.setState((prevState) => {
+    //   return {
+    //     qty: prevState.qty + 1,
+    //   };
+    // });
   };
 
   delete = () => {
